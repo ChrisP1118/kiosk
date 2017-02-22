@@ -138,6 +138,7 @@ $(function(){
     $("#hour").siblings('label').addClass('active');
   }
   if(data.hidecursor) $("#hidecursor").prop("checked",true);
+  if(data.disablemailto) $("#disablemailto").prop("checked",true);
   if(data.disablecontextmenu) $("#disablecontextmenu").prop("checked",true);
   if(data.disabledrag) $("#disabledrag").prop("checked",true);
   if(data.disabletouchhighlight) $("#disabletouchhighlight").prop("checked",true);
@@ -260,6 +261,7 @@ $(function(){
     var port = parseInt($('#port').val());
     var reset = $("#reset").is(':checked');
     var hidecursor = $("#hidecursor").is(':checked');
+    var disablemailto = $("#disablemailto").is(':checked');
     var disablecontextmenu = $("#disablecontextmenu").is(':checked');
     var disabledrag = $("#disabledrag").is(':checked');
     var disabletouchhighlight = $("#disabletouchhighlight").is(':checked');
@@ -390,6 +392,8 @@ $(function(){
       else chrome.storage.local.remove('schedulepollinterval');
       if(hidecursor) chrome.storage.local.set({'hidecursor':hidecursor});
       else chrome.storage.local.remove('hidecursor');
+      if(disablemailto) chrome.storage.local.set({'disablemailto':disablemailto});
+      else chrome.storage.local.remove('disablemailto');
       if(disablecontextmenu) chrome.storage.local.set({'disablecontextmenu':disablecontextmenu});
       else chrome.storage.local.remove('disablecontextmenu');
       if(disabledrag) chrome.storage.local.set({'disabledrag':disabledrag});

@@ -179,6 +179,7 @@ $(function(){
      }
 
      hidecursor = data.hidecursor ? true : false;
+     disablemailto = data.disablemailto ? true : false;
      disablecontextmenu = data.disablecontextmenu ? true : false;
      disabledrag = data.disabledrag ? true : false;
      disabletouchhighlight = data.disabletouchhighlight ? true : false;
@@ -186,6 +187,16 @@ $(function(){
      resetcache = data.resetcache ? true : false;
      partition = data.partition;
      allownewwindow = data.newwindow ? true : false
+     
+     $(document).ready(function(){
+       if (disablemailto){
+          $("a").click(function(e) {
+            /*if ($(this).attr('href').startsWith('mailto:')){ 
+              event.preventDefault();
+            }*/
+          });
+       }
+     });
 
      reset = data.reset && parseFloat(data.reset) > 0 ? parseFloat(data.reset) : false;
 
